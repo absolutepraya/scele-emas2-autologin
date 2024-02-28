@@ -8,6 +8,7 @@
 // @match        https://scele.cs.ui.ac.id/login/index.php
 // @match        https://emas2.ui.ac.id/login/index.php
 // @match        https://academic.ui.ac.id/main/Authentication/
+// @match        https://sso.ui.ac.id/cas/login
 // ==/UserScript==
 
 (function() {
@@ -18,27 +19,30 @@
     // declare variables
     var inputName, inputPassword, submitButton;
 
+    // insert username and password
     if (window.location.href === "https://academic.ui.ac.id/main/Authentication/") {
-        // insert username
         inputName = document.getElementsByName("u")[0];
-        inputName.value = username;
-        // insert password
         inputPassword = document.getElementsByName("p")[0];
-        inputPassword.value = password;
+        
+    } else if (window.location.href === "https://sso.ui.ac.id/cas/login") {
+        inputName = document.getElementById("username");
+        inputPassword = document.getElementById("password");
     } else {
-        // insert username
         inputName = document.getElementsByName("username")[0];
         if (inputName) {
-            inputName.value = username;
         } else {
-            // stop the script if username input is not found (for SCELE homepage)
             return;
         }
-        // insert password
         inputPassword = document.getElementsByName("password")[0];
-        inputPassword.value = password;
     }
+    inputName.value = username;
+    inputPassword.value = password;
+
     // click the login button
+    if (window.location.href === "https://sso.ui.ac.id/cas/login") {
+    submitButton = document.getElementsByClassName("btn btn-lg btn-primary")[0];
+    } else {
     submitButton = document.querySelector("[type='submit']");
+    }
     submitButton.click();
 })();
