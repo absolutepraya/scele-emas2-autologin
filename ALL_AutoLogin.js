@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         EMAS, SCELE, and SIAK-NG AutoLogin
+// @name         SSO UI, EMAS2, SCELE, and SIAK-NG AutoLogin
 // @namespace    http://tampermonkey.net/
 // @version      1.0.0
 // @description  This userscript is made to automatically login to SCELE UI website using your account
