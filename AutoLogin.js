@@ -2,15 +2,15 @@
 // @name         SSO UI, EMAS2, SCELE, and SIAK-NG AutoLogin
 // @namespace    http://tampermonkey.net/
 // @version      2.3
-// @description  This userscript is made to automatically login to UI websites using your account credentials. Set your username and password in the script before using it.
+// @description  This userscript is made to automatically login to UI websites using your account credentials.
 // @author       absolutepraya
 // @match        https://scele.cs.ui.ac.id/
 // @match        https://scele.cs.ui.ac.id/login/index.php
 // @match        https://emas2.ui.ac.id/login/index.php
 // @match        https://academic.ui.ac.id/main/Authentication/
 // @match        https://sso.ui.ac.id/cas/login*
+// @match        https://sso.ui.ac.id/cas2/login*
 // @icon         https://i.ibb.co.com/m8vqKV2/favicon-32x32.png
-// @license      MIT
 // ==/UserScript==
 
 (function() {
