@@ -45,6 +45,12 @@
     } else if (window.location.href.startsWith("https://sso.ui.ac.id/cas/login")) {
         inputName = document.getElementById("username");
         inputPass = document.getElementById("password");
+    } else if (window.location.href === "https://scele.cs.ui.ac.id/") {
+        // Check if it's not logged in
+        if (document.body.innerText.includes("You are not logged in.")) {
+            // Go to login page
+            window.location.href = "https://scele.cs.ui.ac.id/login/index.php";
+        }
     } else {
         inputName = document.getElementsByName("username")[0];
         if (!inputName) return;
@@ -54,7 +60,11 @@
     if (inputName && inputPass) {
         inputName.value = username;
         inputPass.value = password;
-        submitButton = document.querySelector("[type='submit']");
+        if (window.location.href.startsWith("https://scele.cs.ui.ac.id/login/index.php")) {
+            submitButton = document.getElementById("loginbtn");
+        } else {
+            submitButton = document.querySelector("[type='submit']");
+        }
         if (submitButton) submitButton.click();
     }
 })();
